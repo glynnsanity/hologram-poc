@@ -21,7 +21,7 @@ export function NewNavigation({ navigation } : Props ) {
   return (
     <div className="container max-w-screen-2xl border-black border-solid border-b">
       <div className="flex justify-between items-center w-full">
-          <div className='ml-10'>
+          <div className="ml-10">
               <img src={navigation.logoImage} alt="logo" className="w-1/2 h-auto" />
           </div>
           <div>

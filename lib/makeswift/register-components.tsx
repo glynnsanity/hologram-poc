@@ -12,7 +12,6 @@ import {
 } from '@makeswift/runtime/controls'
 import { ReactRuntime } from '@makeswift/runtime/react'
 import { forwardNextDynamicRef } from '@makeswift/runtime/next'
-import { NewNavigation } from 'components/new-navigation'
 
 import {
   ProductList,
@@ -43,15 +42,19 @@ ReactRuntime.registerComponent(
   ),
   {
     type: 'hero',
-    label: 'Hero',
+    label: 'BigCommerce / Hero',
     props: {
-      className: Style(),
-      mainImage: Image({ label: 'Main Image' }),
-      button: Shape({
+      hero: Shape({
         type: {
-          href: TextInput({ label: 'Link' }),
-          text: TextInput({ label: 'Text' }),
-        },
+          className: Style(),
+          mainImage: Image({ label: 'Main Image' }),
+          button: Shape({
+            type: {
+              href: TextInput({ label: 'Link' }),
+              text: TextInput({ label: 'Text' }),
+            },
+          }),
+        }
       }),
     },
   }
@@ -63,7 +66,7 @@ ReactRuntime.registerComponent(
   ),
   {
     type: 'footer',
-    label: 'Footer',
+    label: 'BigCommerce / Footer',
     props: {
       className: Style(),
       effectsColumn: Shape({
@@ -132,7 +135,7 @@ ReactRuntime.registerComponent(
   ),
   {
     type: 'goal-section',
-    label: 'Goal Section',
+    label: 'BigCommerce / Goal Section',
     props: {
       mainImage: Image({ label: 'Main Image' }),
       mainText: TextInput({ label: 'Main Text' }),
@@ -152,7 +155,7 @@ ReactRuntime.registerComponent(
   ),
   {
     type: 'effects-section',
-    label: 'Effects Section',
+    label: 'BigCommerce / Effects Section',
     props: {
       products: TextInput({ label: 'Products' }),
       links: List({

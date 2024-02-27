@@ -13,6 +13,8 @@ module.exports = {
         peach: '#FEF6F1',
         grey: '#F6F6F6',
         oldyellow: '#FCE5AE',
+        charcoal: '#222720',
+        beigey: '#F8F6F0',
       },
     },
   },
