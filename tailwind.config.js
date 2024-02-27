@@ -6,12 +6,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Chivo', ...defaultTheme.fontFamily.sans],
+        sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         green: '#335510',
         peach: '#FEF6F1',
         grey: '#F6F6F6',
+        oldyellow: '#FCE5AE',
       },
     },
   },
