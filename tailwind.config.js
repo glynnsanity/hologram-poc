@@ -17,6 +17,7 @@ module.exports = {
         beigey: '#F8F6F0',
         greyish: '#E1DCD5',
         redsy: '#E74B38',
+        newgrey: '#999691',
       },
     },
   },

@@ -28,17 +28,22 @@ type Props = {
 };
 
 export function Footer({ footer }: Props) {
+    const mainText = footer.subscriptionArea.mainText; // Assuming this is your text variable
+    const wordsToBold = "Subscribe to our mailing list"; // The word you want to bold
+
+    // Split the text into parts, with the word to bold as a delimiter
+    const parts = mainText.split(new RegExp(`(${wordsToBold})`, 'gi'));
   return (
-    <div className="flex w-full">
-      <div className="flex-grow" style={{ flexBasis: '70%' }}>
+    <div className="flex w-full border border-y-charcoal">
+      <div className="flex-grow bg-beigey p-6 border border-r-charcoal pb-12" style={{ flexBasis: '70%' }}>
         <div className="flex justify-between">
           {[footer.effectsColumn, footer.resourcesColumn, footer.socialColumn].map((column, index) => (
             <div key={index} className="w-full px-4">
-              <h3 className="font-bold text-lg mb-4">{column.title}</h3>
+              <h3 className="font-semibold text-lg mb-4">{column.title}</h3>
               <ul>
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex} className="mb-2">
-                    <a href={link.href} className="text-md text-gray-600 hover:text-gray-900">{link.text}</a>
+                    <a href={link.href} className="text-md text-charcoal hover:text-gray-900">{link.text}</a>
                   </li>
                 ))}
               </ul>
@@ -46,17 +51,34 @@ export function Footer({ footer }: Props) {
           ))}
         </div>
       </div>
-      <div className="flex-grow" style={{ flexBasis: '30%' }}>
+      <div className="flex-grow bg-oldyellow pb-12" style={{ flexBasis: '30%' }}>
         <div className="flex flex-col items-center justify-center p-8 space-y-6">
-          <p className="text-lg font-semibold">{footer.subscriptionArea.mainText}</p>
-          <form className="w-full max-w-sm flex flex-col items-center space-y-3">
-            <input type="email" placeholder="Enter your email" className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" />
-            <div className="flex items-center space-x-2">
-              <input type="checkbox" id="terms" className="w-4 h-4 text-blue-600 border-gray-300 rounded" />
-              <label htmlFor="terms" className="text-sm text-gray-600">{footer.subscriptionArea.termsText}</label>
-            </div>
-            <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">{footer.subscriptionArea.button.text}</button>
-          </form>
+            <p className="text-md font-light">
+                {parts.map((part, index) =>
+                // Check if the part is the word to bold
+                part.toLowerCase() === wordsToBold.toLowerCase() ? (
+                    <strong key={index} className="font-bold">{part}</strong> // Bold the specific word
+                ) : (
+                    part // Render the rest of the text normally
+                )
+                )}
+            </p>
+            <form className="w-full max-w-sm flex flex-col items-start space-y-6">
+              <input type="email" placeholder="Email" className="w-full px-4 py-2 border border-charcoal rounded-md shadow-sm bg-transparent" />
+              <div className="flex items-center space-x-2">
+                <input type="checkbox" id="terms" className="appearance-none h-4 w-4 border border-charcoal rounded bg-oldyellow checked:bg-charcoal focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" />
+                <label htmlFor="terms" className="text-md text-charcoal flex items-center cursor-pointer">
+                  {footer.subscriptionArea.termsText}
+                </label>
+              </div>
+              <div className="text-center" style={{ width: '100%', boxSizing: 'border-box' }}>
+                <button type="submit" 
+                  className="w-full py-4 text-beigey font-bold rounded-md transition-colors bg-charcoal hover:bg-white hover:text-black hover:border hover:border-black flex justify-center items-center"
+                  style={{ display: 'flex', justifyContent: 'center' }}>
+                  {footer.subscriptionArea.button.text}
+                </button>
+              </div>
+            </form>
         </div>
       </div>
     </div>
