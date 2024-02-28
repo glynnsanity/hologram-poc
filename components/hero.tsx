@@ -54,7 +54,7 @@ export function Hero({ hero } : Props ) {
             </div>
             <div className="button-container relative" style={{ width: '350px' }}>
                 <a href={hero.button.href} 
-                    className="w-full flex justify-center items-center py-6 bg-charcoal text-beigey font-bold rounded-md transition-colors hover:bg-white hover:text-black hover:border hover:border-black">
+                    className="w-full flex justify-center items-center py-6 bg-charcoal text-beigey font-bold rounded-md transition-colors hover:bg-white hover:text-charcoal hover:border hover:border-charcoal">
                     <span>{hero.button.text}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 12 24" stroke="currentColor" strokeWidth="4">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

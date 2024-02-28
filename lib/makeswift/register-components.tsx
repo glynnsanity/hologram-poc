@@ -35,6 +35,33 @@ import { Locale } from 'lib/locale'
 import dynamic from 'next/dynamic'
 import React from 'react'
 
+ReactRuntime.registerComponent(
+  forwardNextDynamicRef(patch =>
+    dynamic(() => patch(import('components/new-navigation').then(({ NewNavigation }) => NewNavigation)))
+  ),
+  {
+    type: 'new-navigation',
+    label: 'BigCommerce / New Navigation',
+    props: {
+      navigation: Shape({
+        type: {
+          className: Style(),
+          logoImage: Image({ label: 'Logo Image' }),
+          links: List({
+            type: Shape({
+              type: {
+                href: TextInput({ label: 'Link' }),
+                text: TextInput({ label: 'Text' }),
+              },
+            }),
+            label: 'Links',
+            getItemLabel: item => item?.text ?? '',
+          }),
+        },
+      }),
+    },
+  }
+)
 
 ReactRuntime.registerComponent(
   forwardNextDynamicRef(patch =>
@@ -62,59 +89,16 @@ ReactRuntime.registerComponent(
 
 ReactRuntime.registerComponent(
   forwardNextDynamicRef(patch =>
-    dynamic(() => patch(import('components/footer').then(({ Footer }) => Footer)))
+    dynamic(() => patch(import('components/goal-section').then(({ GoalSection }) => GoalSection)))
   ),
   {
-    type: 'footer',
-    label: 'BigCommerce / Footer',
+    type: 'goal-section',
+    label: 'BigCommerce / Goal Section',
     props: {
-      className: Style(),
-      effectsColumn: Shape({
+      goalsection: Shape({
         type: {
-          links: List({
-            type: Shape({
-              type: {
-                href: TextInput({ label: 'Link' }),
-                text: TextInput({ label: 'Text' }),
-              },
-            }),
-            label: 'Links',
-            getItemLabel: item => item?.text ?? '',
-          }),
-        },
-      }),
-      resourcesColumn: Shape({
-        type: {
-          title: TextInput({ label: 'Title' }),
-          links: List({
-            type: Shape({
-              type: {
-                href: TextInput({ label: 'Link' }),
-                text: TextInput({ label: 'Text' }),
-              },
-            }),
-            label: 'Links',
-            getItemLabel: item => item?.text ?? '',
-          }),
-        },
-      }),
-      socialColumn: Shape({
-        type: {
-          title: TextInput({ label: 'Title' }),
-          links: List({
-            type: Shape({
-              type: {
-                href: TextInput({ label: 'Link' }),
-                text: TextInput({ label: 'Text' }),
-              },
-            }),
-            label: 'Links',
-            getItemLabel: item => item?.text ?? '',
-          }),
-        },
-      }),
-      subscriptionArea: Shape({
-        type: {
+          className: Style(),
+          mainImage: Image({ label: 'Main Image' }),
           mainText: TextInput({ label: 'Main Text' }),
           button: Shape({
             type: {
@@ -122,27 +106,6 @@ ReactRuntime.registerComponent(
               text: TextInput({ label: 'Text' }),
             },
           }),
-          termsText: TextInput({ label: 'Terms Text' }),
-        },
-      }),
-    },
-  }
-)
-
-ReactRuntime.registerComponent(
-  forwardNextDynamicRef(patch =>
-    dynamic(() => patch(import('components/goal-section').then(({ GoalSection }) => GoalSection)))
-  ),
-  {
-    type: 'goal-section',
-    label: 'BigCommerce / Goal Section',
-    props: {
-      mainImage: Image({ label: 'Main Image' }),
-      mainText: TextInput({ label: 'Main Text' }),
-      button: Shape({
-        type: {
-          href: TextInput({ label: 'Link' }),
-          text: TextInput({ label: 'Text' }),
         },
       }),
     },
@@ -157,45 +120,91 @@ ReactRuntime.registerComponent(
     type: 'effects-section',
     label: 'BigCommerce / Effects Section',
     props: {
-      products: TextInput({ label: 'Products' }),
-      links: List({
+      className: Style(),
+      categoryTitle: TextInput({ label: 'Category Title' }),
+      products: List({
         type: Shape({
           type: {
+            productImage: Image({ label: 'Product Image' }),
             href: TextInput({ label: 'Link' }),
-            text: TextInput({ label: 'Text' }),
+            name: TextInput({ label: 'Name' }),
+            description: TextInput({ label: 'Description' }),
           },
         }),
-        label: 'Links',
-        getItemLabel: item => item?.text ?? '',
+        label: 'Products',
+        getItemLabel: item => item?.name ?? '',
       }),
-      buttonText: TextInput({ label: 'Button Text' }),
-    },
+    }
   }
 )
 
-
-
 ReactRuntime.registerComponent(
   forwardNextDynamicRef(patch =>
-    dynamic(() => patch(import('components/new-navigation').then(({ NewNavigation }) => NewNavigation)))
+    dynamic(() => patch(import('components/footer').then(({ Footer }) => Footer)))
   ),
   {
-    type: 'new-navigation',
-    label: 'BigCommerce / New Navigation',
+    type: 'footer',
+    label: 'BigCommerce / Footer',
     props: {
-      navigation: Shape({
+      footer: Shape({
         type: {
           className: Style(),
-          logoImage: Image({ label: 'Logo Image' }),
-          links: List({
-            type: Shape({
-              type: {
-                href: TextInput({ label: 'Link' }),
-                text: TextInput({ label: 'Text' }),
-              },
-            }),
-            label: 'Links',
-            getItemLabel: item => item?.text ?? '',
+          effectsColumn: Shape({
+            type: {
+              title: TextInput({ label: 'First Column Title' }),
+              links: List({
+                type: Shape({
+                  type: {
+                    href: TextInput({ label: 'First Column Link' }),
+                    text: TextInput({ label: 'First Column Text' }),
+                  },
+                }),
+                label: 'First Column Links',
+                getItemLabel: item => item?.text ?? '',
+              }),
+            },
+          }),
+          resourcesColumn: Shape({
+            type: {
+              title: TextInput({ label: 'Second Column Title' }),
+              links: List({
+                type: Shape({
+                  type: {
+                    href: TextInput({ label: 'Second Column Link' }),
+                    text: TextInput({ label: 'Second Column Text' }),
+                  },
+                }),
+                label: 'Second Column Links',
+                getItemLabel: item => item?.text ?? '',
+              }),
+            },
+          }),
+          socialColumn: Shape({
+            type: {
+              title: TextInput({ label: 'Third Column Title' }),
+              links: List({
+                type: Shape({
+                  type: {
+                    href: TextInput({ label: 'Third Column Link' }),
+                    text: TextInput({ label: 'Third Column Text' }),
+                  },
+                }),
+                label: 'Third Column Links',
+                getItemLabel: item => item?.text ?? '',
+              }),
+            },
+          }),
+          subscriptionArea: Shape({
+            type: {
+              mainText: TextInput({ label: 'Subscription Area Text' }),
+              button: Shape({
+                type: {
+                  href: TextInput({ label: 'Subscription Link' }),
+                  text: TextInput({ label: 'Subscription Button Text' }),
+                },
+              }),
+              termsText: TextInput({ label: 'Subscription Terms Text' }),
+            },
           }),
         },
       }),
