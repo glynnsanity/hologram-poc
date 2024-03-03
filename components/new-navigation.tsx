@@ -11,7 +11,7 @@ type Navigation = {
 }
 
 type Props = {
-  navigation: Navigation
+  navigation: Navigation[]
 }
 
 export function NewNavigation({ navigation } : Props ) {
