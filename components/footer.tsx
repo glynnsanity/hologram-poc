@@ -30,7 +30,9 @@ export function Footer({ footer }: Props) {
     const wordsToBold = "Subscribe to our mailing list"; // The word you want to bold
 
     // Split the text into parts, with the word to bold as a delimiter
-    const parts = mainText.split(new RegExp(`(${wordsToBold})`, 'gi'));
+    const safeMainText = mainText || "Enter text for the subscription area here.";
+    const parts = safeMainText.split(new RegExp(`(${wordsToBold})`, 'gi'));
+
   return (
     <div className="flex w-full border border-y-charcoal">
       <div className="flex-grow bg-beigey p-6 border border-r-charcoal pb-12" style={{ flexBasis: '70%' }}>
