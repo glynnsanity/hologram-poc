@@ -1,8 +1,6 @@
 import React, { Ref, forwardRef } from 'react'
 import Image from 'next/image'
 
-import clsx from 'clsx'
-
 type Footer = {
   effectsColumn: {
     title: string;
