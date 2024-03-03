@@ -1,17 +1,21 @@
 import React, { Ref, forwardRef } from 'react'
 import Image from 'next/image'
 
+
+
+interface NavigationLink {
+  href: string;
+  text: string;
+}
+
 type Navigation = {
   logoImage: string
-  links: {
-    href: string
-    text: string
-  }
+  links: NavigationLink[];
   buttonText: string
 }
 
 type Props = {
-  navigation: Navigation[]
+  navigation: Navigation
 }
 
 export function NewNavigation({ navigation } : Props ) {
