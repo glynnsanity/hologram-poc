@@ -11,7 +11,6 @@ interface NavigationLink {
 type Navigation = {
   logoImage: string
   links: NavigationLink[]
-  buttonText: string
 }
 
 type Props = {
