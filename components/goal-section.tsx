@@ -2,11 +2,11 @@ import React, { Ref, forwardRef } from 'react'
 import Image from 'next/image'
 
 type GoalSection = {
-  mainImage: string
-  mainText: string
+  mainImage?: string
+  mainText?: string
   button: {
-    href: string
-    text: string
+    href?: string
+    text?: string
   }
 }
 

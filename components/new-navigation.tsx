@@ -4,12 +4,12 @@ import Image from 'next/image'
 
 
 interface NavigationLink {
-  href: string;
-  text: string;
+  href?: string;
+  text?: string;
 }
 
 type Navigation = {
-  logoImage: string
+  logoImage?: string
   links: NavigationLink[]
 }
 

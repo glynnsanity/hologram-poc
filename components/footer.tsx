@@ -3,21 +3,21 @@ import Image from 'next/image'
 
 type Footer = {
   effectsColumn: {
-    title: string;
-    links: { href: string; text: string }[];
+    title?: string;
+    links: { href?: string; text?: string }[];
   };
   resourcesColumn: {
-    title: string;
-    links: { href: string; text: string }[];
+    title?: string;
+    links: { href?: string; text?: string }[];
   };
   socialColumn: {
-    title: string;
-    links: { href: string; text: string }[];
+    title?: string;
+    links: { href?: string; text?: string }[];
   };
   subscriptionArea: {
-    mainText: string;
-    button: { href: string; text: string };
-    termsText: string;
+    mainText?: string;
+    button: { href?: string; text?: string };
+    termsText?: string;
   };
 };
 

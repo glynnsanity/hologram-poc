@@ -2,10 +2,10 @@ import React, { Ref, forwardRef } from 'react'
 import Image from 'next/image'
 
 type Hero = {
-  mainImage: string
+  mainImage?: string
   button: {
-    href: string
-    text: string
+    href?: string
+    text?: string
   }
 }
 

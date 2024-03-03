@@ -2,14 +2,14 @@ import React, { Ref, forwardRef } from 'react'
 import Image from 'next/image'
 
 type ProductCard = {
-  productImage: string;
-  href: string;
-  name: string;
-  description: string;
+  productImage?: string;
+  href?: string;
+  name?: string;
+  description?: string;
 };
 
 type EffectsSectionProps = {
-  categoryTitle: string;
+  categoryTitle?: string;
   products: ProductCard[];
 };
 
