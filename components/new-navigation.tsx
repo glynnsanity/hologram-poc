@@ -10,7 +10,7 @@ interface NavigationLink {
 
 type Navigation = {
   logoImage: string
-  links: NavigationLink[];
+  links: NavigationLink[]
   buttonText: string
 }
 
